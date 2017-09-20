@@ -1,0 +1,58 @@
+<table class='table table-striped'>
+    <tr>
+        <th ng-repeat="table in myTable.tableSetting track by $index">{{table.displayName}}</th>
+    </tr>
+
+    <tr ng-repeat = 'row in myTable.addData track by $index'>
+        <td ng-repeat = 'column in myTable.tableSetting track by $index'>
+        
+           <!--{{column | json }}-->
+            <button ng-repeat = 'btn in column.action track by $index' 
+                class = 'btn btn-info'>{{btn.button}}</button>
+
+                <a href = '#' ng-if = 'column.link'>{{row[column.columnName]}}</a>
+            <span ng-if = '!column.link'>{{row[column.columnName]}}</span>
+            
+<input type = '{{column.type}}' ng-model = 'myTable.model{{row[column.columnName]}}' class = 'form-control'
+  name = '{{colunm.columnName}}'  ng-if = 'column.type == "text"'/>
+
+        </td>
+        </tr>
+</table>
+
+
+
+<!--myTable.tableSetting =  [ {columnName : 'id', displayName : 'Id'},
+                            {columnName : 'name', displayName : 'Name'},
+                            {columnName : 'city', displayName : 'City'},
+                            {columnName : 'state', displayName : 'State'},
+                            {columnName : 'button', displayName : 'Action', action : [{button : 'delete'}]},
+                            ];
+
+    first loop;
+    column = myTable.tableSetting[0];
+    colunm = {columnName : 'id', displayName : 'Id'}
+
+    sec loop;
+     column = myTable.tableSetting[1];
+    colunm =  {columnName : 'name', displayName : 'Name'},
+
+    third loop;
+     column = myTable.tableSetting[2];
+       {columnName : 'city', displayName : 'City'},
+
+       fourth loop;
+     column = myTable.tableSetting[3];
+        {columnName : 'state', displayName : 'State'},
+
+
+      fifth loop;
+     column = myTable.tableSetting[4];
+    column = {tableName : 'button', displayName : 'Action', action : [{button : 'delete'}]}
+
+colunm.action =  [{button : 'delete'}];
+
+btn = [{button : 'delete'}]; 
+
+btn.button = delete;
+-->

@@ -1,0 +1,16 @@
+<!--<form name="myForm" novalidate="true">-->
+    <div class="form-group" ng-repeat='form in myForm.formSetting track by $index'>
+
+        <label class='control-label'><span ng-if="form.required">*</span> {{form.labelName}}</label>
+        <div>
+            <input type='{{form.type}}' name='{{form.fieldName}}' uppercase="true" ng-required='form.required' class='form-control' ng-model='myForm.model[form.fieldName]'
+            />
+        </div>
+    </div>
+
+
+    <!--pass parameter in function-->
+    <button type='sumbit' class='btn btn-primary form-control' ng-click='myForm.save({model : myForm.model})'>Save</button>
+<!--</form>-->
+<!--without pass paramete in function-->
+<!--<button type = 'sumbit' class = 'btn btn-primary form-control' ng-click = 'myForm.save()'>Save</button>-->
